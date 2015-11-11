@@ -72,5 +72,11 @@ for f in dirs:
         #localkey = 
         dictionary[localkey] = fdist[localkey]
     print"write ---> " + f
-    result.write(str(sorted(dictionary.items(), key = lambda x:x[1] ,reverse = True)))
-
+    #result.write(str(sorted(dictionary.items(), key = lambda x:x[1] ,reverse = True)))
+    dct = sorted(dictionary.items(), key = lambda x:x[1], reverse = True)
+    seq = []
+    for item in dct:
+        line = str(item[0]) + ' ' + str(item[1]) + '\n'
+        seq.append(line)
+    result.writelines(seq)
+    result.close()
